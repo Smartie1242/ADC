@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <math.h>
-#include <libstack.h>
 
 typedef struct Stack {
 	int *array;
