@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <math.h>
+#include <libstack.h>
 
 typedef struct Stack {
 	int *array;
@@ -62,24 +63,24 @@ void freeStack(Stack st) {
 }
 
 int main(int argc, char*argv[]) {
-	int n;
-	scanf("%d", &n);
-	for (int i = 0; i < n; i++) {
+	int n, z;
+	z = scanf("%d", &n);
+	for (int i = 0; i < n; i++) { // One loop for every signal
 
 		int l;
-		scanf("%d", &l);
+		z = scanf("%d", &l);
 		Stack stack = newStack(10);
-		for (int j = 0; j < l; j++) {
+		for (int j = 0; j < l; j++) { //Loops for every number in the signal
 			int value;
-			scanf("%d", &value);
-			while (value < stack.top) {
+			z = scanf("%d", &value);
+			while (value < stack.top) { //If true the end of an interval is found and printed.
 				printf("[%d,%d)@%d ",pop(&stack) , j, stack.top);
 			}
-			while (value > stack.top) {
+			while (value > stack.top) { //If true no end of interval has been found
 				push(j, &stack);
 			}
 		}
-		while (stack.top > 0) {
+		while (stack.top > 0) { //Continues until all intervals have been printed.
 			printf("[%d,%d)@%d ",pop(&stack) , l, stack.top);
 		}
 		freeStack(stack);
