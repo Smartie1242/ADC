@@ -1,4 +1,4 @@
-/*file:    digital signals.c							   */
+/*file:    signals.c							   */
 /*author:  Joel Kiers (email: j.k.kiers@student.rug.nl)*/
 /*partner: Marten Bosma (email: m.bosma.21@student.rug.nl)*/
 /*date:    4 Feb, 2020								   */
@@ -63,7 +63,7 @@ void freeStack(Stack st) {
 }
 */
 int main(int argc, char*argv[]) {
-	int n, z;
+	int n;
 	scanf("%d", &n);
 	for (int i = 0; i < n; i++) { // One loop for every signal
 
