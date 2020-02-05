@@ -11,57 +11,7 @@
 #include <math.h>
 #include "LibStack.h"
 
-/*typedef struct Stack {
-	int *array;
-	int top;
-	int size;
-} Stack;
 
-Stack newStack(int s) {
-	Stack st;
-	st.array = malloc(s * sizeof(int));
-	assert(st.array != NULL);
-	st.top = 0;
-	st.size = s;
-	return st;
-}
-
-void doubleStackSize(Stack *stp) {
-	int  newSize = 2 * stp ->size;
-	stp ->array = realloc(stp ->array , newSize * sizeof(int));
-	assert(stp ->array  != NULL);
-	stp ->size = newSize;
-}
-
-void push(int value, Stack *stp) {
-	if (stp ->top == stp ->size) {
-		doubleStackSize(stp);
-	}
-	stp ->array[stp ->top] = value;
-	stp ->top ++;
-}
-
-int isEmptyStack(Stack st) {
-	return (st.top == 0);
-}
-
-void stackEmptyError() {
-	printf("stack empty\n");
-	abort();
-}
-
-int pop(Stack *stp) {
-	if (isEmptyStack (*stp)) {
-		stackEmptyError();
-	}
-	stp ->top --;
-	return (stp ->array)[stp ->top];
-}
-
-void freeStack(Stack st) {
-	free(st.array);
-}
-*/
 int main(int argc, char*argv[]) {
 	int n;
 	scanf("%d", &n);
@@ -83,6 +33,7 @@ int main(int argc, char*argv[]) {
 		while (stack.top > 0) { //Continues until all intervals have been printed.
 			printf("[%d,%d)@%d ",pop(&stack) , l, stack.top);
 		}
+		printf("\n");
 		freeStack(stack);
 
 	}
