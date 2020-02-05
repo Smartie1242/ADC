@@ -9,8 +9,9 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <math.h>
+#include "LibStack.h"
 
-typedef struct Stack {
+/*typedef struct Stack {
 	int *array;
 	int top;
 	int size;
@@ -60,18 +61,18 @@ int pop(Stack *stp) {
 void freeStack(Stack st) {
 	free(st.array);
 }
-
+*/
 int main(int argc, char*argv[]) {
 	int n, z;
-	z = scanf("%d", &n);
+	scanf("%d", &n);
 	for (int i = 0; i < n; i++) { // One loop for every signal
 
 		int l;
-		z = scanf("%d", &l);
+		scanf("%d", &l);
 		Stack stack = newStack(10);
 		for (int j = 0; j < l; j++) { //Loops for every number in the signal
 			int value;
-			z = scanf("%d", &value);
+			scanf("%d", &value);
 			while (value < stack.top) { //If true the end of an interval is found and printed.
 				printf("[%d,%d)@%d ",pop(&stack) , j, stack.top);
 			}
