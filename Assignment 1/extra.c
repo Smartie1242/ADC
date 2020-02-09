@@ -15,27 +15,29 @@ int main(int argc, char*argv[]) {
 	scanf("%d", &n);
 	printf("%d\n", n);
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) { // One loop for every signal
 
-		int *signal, l;
+		int *signal, l; // Initialize the array {0}
 		int size = 1;
 		signal = malloc(sizeof(int));
 		signal[0] = 0;
-		scanf("%d", &l);
 
-		for (int j = 0; j < l; j++) {
+		scanf("%d", &l);
+		getchar();
+
+		for (int j = 0; j < l; j++) { // Loops for every layer provided each signal
 			int a, b, layer;
-			//scanf("%d %d %d", &a, &b, &layer);
 			scanf("[%d,%d)@%d ", &a, &b, &layer);
-			if (b > size) {
+			if (b > size) { // Makes the array bigger if needed
 				signal = realloc(signal, b * sizeof(int));
-				while(size < b) {
+				while(size < b) { // Fills unaccounted spaces in array with 0's
 					signal[size] = 0;
 					size++;
 				}
 				size = b;
 			}
-			while (a < b) {
+
+			while (a < b) { // Fills array with layer values for every layer
 				if (layer > signal[a]) {
 					signal[a] = layer;
 				}
@@ -44,7 +46,7 @@ int main(int argc, char*argv[]) {
 		}
 
 		printf("%d\n", size);
-		for (int j = 0; j < size; j++) {
+		for (int j = 0; j < size; j++) { // Print the signal (array)
 			printf("%d ", signal[j]);
 		}
 		printf("\n");
