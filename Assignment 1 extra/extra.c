@@ -18,6 +18,8 @@ int main(int argc, char*argv[]) {
 	for (int i = 0; i < n; i++) { // One loop for every signal
 		int l;
 		scanf("%d", &l);
+		List list = newEmptyList();
+
 		for (int j = l; j > 0; j--) {
 
 		}

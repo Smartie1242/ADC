@@ -1,5 +1,5 @@
 
-a.out: signals.c Lib*.h Lib*.c
+a.out: extra.c Lib*.h Lib*.c
 	gcc -g -O2 -std=c99 -pedantic -Wall -Wno-unused-result *.c -lm
 
 .PHONY: run example debug clean
