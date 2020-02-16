@@ -10,9 +10,9 @@
 #include <assert.h>
 #include <math.h>
 #include "scanner.h"
-#include "recognizeExp.h"
+#include "recognizeEq.h"
 
 int main(int argc, char *argv[]) {
-  recognizeExpressions();
+  recognizeEquations();
   return 0;
 }
