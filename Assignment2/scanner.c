@@ -1,3 +1,4 @@
+//
 /* scanner.c, Gerard Renardel, 29 January 2014
  *
  * In this file a scanner is defined that can read expressions consisting of
