@@ -88,7 +88,7 @@ int acceptEquation(List *lp) {
   return 1;
 }
 
-int checkIdentifier(List *lp, ) {
+int checkIdentifier(List *lp) {
   if (*lp != NULL && (*lp)->tt == Identifier) {
     *lp = (*lp)->next;
     return 1;
@@ -101,7 +101,7 @@ int checkOneVariable(List *lp) {
 }
 
 int findDegree(List *lp) {
-  int degree = 0;
+  //int degree = 0;
 
-  return degree;
+  return 0;
 }

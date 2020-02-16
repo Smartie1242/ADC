@@ -1,5 +1,6 @@
 /*file:    mainRecogEq.c							   */
 /*author:  Joel Kiers (email: j.k.kiers@student.rug.nl)*/
+/*author: Marten Bosma (email: m.bosma.21@student.rug.nl) */
 /*date:    16 Feb, 2019								   */
 /*version: 1.0 										   */
 /*Description: This program scans a line of input and determines if it is in fact an equation	   */
