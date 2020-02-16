@@ -23,7 +23,7 @@ int main(int argc, char*argv[]) {
 		List lp = li;
 		if (acceptEquation(&lp) && lp == NULL) {
 			lp = li;
-			if (checkOneVariable(&lp)) {
+			if (checkVariables(&lp)) {
 				lp = li;
 				int degree = findDegree(&lp);
 				printf("this is an equation in 1 variable of degree %d", degree);

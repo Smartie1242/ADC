@@ -19,7 +19,8 @@ int acceptNumber(List *lp) {
 
 int acceptIdentifier(List *lp) {
   if (*lp != NULL && (*lp)->tt == Identifier) {
-    *lp = (*lp)->next;
+		//printf("%s\n", (*lp)->t.identifier); //Testing
+		*lp = (*lp)->next;
     return 1;
   }
   return 0;
@@ -33,18 +34,28 @@ int acceptCharacter(List *lp, char c) {
   return 0;
 }
 
+int acceptDegree(List *lp) { //idea
+  if (*lp != NULL && (*lp)->tt == Number) {
+    *lp = (*lp)->next;
+    return 1;
+  }
+  return 0;
+}
+
 int acceptTerm(List *lp) {
   if ( !acceptNumber(lp) ) {
     if ( !acceptIdentifier(lp) ) {
       return 0;
     }
-    if ( acceptCharacter(lp, '^') && acceptNumber(lp) ) {
-      return 1;
+    if ( acceptCharacter(lp, '^') && acceptDegree(lp) ) {
+			printf("Power 1\n");
+			return 1;
     }
     return 1;
   }
   if ( acceptIdentifier(lp) ) {
-    if ( acceptCharacter(lp, '^') && acceptNumber(lp) ) {
+    if ( acceptCharacter(lp, '^') && acceptDegree(lp) ) {
+			printf("Power 2\n");
       return 1;
     }
     return 1;
@@ -88,16 +99,9 @@ int acceptEquation(List *lp) {
   return 1;
 }
 
-int checkIdentifier(List *lp) {
-  if (*lp != NULL && (*lp)->tt == Identifier) {
-    *lp = (*lp)->next;
-    return 1;
-  }
-  return 0;
-}
+int checkVariables(List *lp) {
 
-int checkOneVariable(List *lp) {
-  return 0;
+	return 1;
 }
 
 int findDegree(List *lp) {

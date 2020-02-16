@@ -6,8 +6,9 @@
 int acceptNumber(List *lp);
 int acceptIdentifier(List *lp);
 int acceptCharacter(List *lp, char c);
+int acceptDegree(List *lp);
 int acceptEquation(List *lp);
-int checkOneVariable(List *lp);
+int checkVariables(List *lp);
 int findDegree(List *lp);
 
 #endif
