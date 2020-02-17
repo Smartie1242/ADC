@@ -9,6 +9,8 @@
 #include "scanner.h"
 #include "recognizeEq.h"
 
+char vari = '\0';
+
 int acceptNumber(List *lp) {
   if (*lp != NULL && (*lp)->tt == Number) {
     *lp = (*lp)->next;
@@ -19,7 +21,11 @@ int acceptNumber(List *lp) {
 
 int acceptIdentifier(List *lp) {
   if (*lp != NULL && (*lp)->tt == Identifier) {
-		//printf("%s\n", (*lp)->t.identifier); //Testing
+		if(vari == 0) {
+			vari = (*lp)->t.identifier;
+			printf("%c\n", vari);
+		}
+		printf("%s\n", (*lp)->t.identifier); //Testing
 		*lp = (*lp)->next;
     return 1;
   }
