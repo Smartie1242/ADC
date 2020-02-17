@@ -62,7 +62,7 @@ int acceptDegree(List *lp) {
   return 0;
 }
 
-int acceptTerm(List *lp, char *id, int *degree) {
+int acceptTerm(List *lp) {
   if ( !acceptNumber(lp) ) {
     if ( !acceptIdentifier(lp) ) {
       return 0;
@@ -81,37 +81,37 @@ int acceptTerm(List *lp, char *id, int *degree) {
   return 1;
 }
 
-int acceptExpression(List *lp, char *id, int *degree) {
+int acceptExpression(List *lp) {
 	if ( !acceptCharacter(lp, '-') ) {
-		if ( !acceptTerm(lp, id, degree) ) {
+		if ( !acceptTerm(lp) ) {
 			return 0;
 		}
 		while ( acceptCharacter(lp, '+') || acceptCharacter(lp, '-') ) {
-			if ( !acceptTerm(lp, id, degree) ) {
+			if ( !acceptTerm(lp) ) {
 				return 0;
 			}
 		}
 		return 1;
 	}
-	if ( !acceptTerm(lp, id, degree) ) {
+	if ( !acceptTerm(lp) ) {
 		return 0;
 	}
 	while ( acceptCharacter(lp, '+') || acceptCharacter(lp, '-') ) {
-		if ( !acceptTerm(lp, id, degree) ) {
+		if ( !acceptTerm(lp) ) {
 			return 0;
 		}
 	}
 	return 1;
 }
 
-int acceptEquation(List *lp, char *id, int *degree) {
-	if(!acceptExpression(lp, id, degree)) {
+int acceptEquation(List *lp) {
+	if(!acceptExpression(lp)) {
 		return 0;
 	}
 	if(!acceptCharacter(lp, '=')) {
 		return 0;
 	}
-	if (!acceptExpression(lp, id, degree)) {
+	if (!acceptExpression(lp)) {
 		return 0;
 	}
 	return 1;
@@ -120,8 +120,7 @@ int acceptEquation(List *lp, char *id, int *degree) {
 void recognizeEquations() {
   char *ar;
   List li, li1;
-	char *id = calloc(20, sizeof(char));
-	int degree = 0;
+
   printf("give an equation: ");
   ar = readInput();
   while (ar[0] != '!') {
@@ -129,16 +128,15 @@ void recognizeEquations() {
     printList(li);
     li1 = li;
 
-    if (acceptEquation(&li1, id, &degree) && li1 == NULL) {
-			printf("this is an equation, but not in 1 variable\n");			
-		} /*else if() {
-			printf("this  is an equation in 1 variable of degree %d\n", degree);
+    if (acceptEquation(&li1) && li1 == NULL) {
+			printf("this is an equation, but not in 1 variable\n");
+		/*} else if() {
+			printf("this  is an equation in 1 variable of degree %d\n", degree);*/
 		} else {
       printf("this is not an equation\n");
-    }*/
+    }
     free(ar);
-		free(id);
-    freeTokenList(li);
+		freeTokenList(li);
     printf("\ngive an equation: ");
     ar = readInput();
   }
