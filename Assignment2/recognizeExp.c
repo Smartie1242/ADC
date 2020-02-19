@@ -131,7 +131,7 @@ void recognizeEquations() {
     if (acceptEquation(&li1) && li1 == NULL) {
 			printf("this is an equation, but not in 1 variable\n");
 		/*} else if() {
-			printf("this  is an equation in 1 variable of degree %d\n", degree);*/
+			printf("this is an equation in 1 variable of degree %d\n", degree);*/
 		} else {
       printf("this is not an equation\n");
     }
